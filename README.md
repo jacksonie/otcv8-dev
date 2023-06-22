@@ -20,9 +20,20 @@ You can clone repoistory and use github action build-on-request workload.
 
 You need visual studio 2022 and vcpkg with commit `3b3bd424827a1f7f4813216f6b32b6c61e386b2e` ([download](https://github.com/microsoft/vcpkg/archive/3b3bd424827a1f7f4813216f6b32b6c61e386b2e.zip)).
 
+Download vcpkg to "C:/", and
+```bash
+cd C:\vcpkg\
+.\bootstrap-vcpkg.bat
+.\vcpkg integrate install
+```
 Then you install vcpkg dependencies:
 ```bash
 vcpkg install boost-iostreams:x86-windows-static boost-asio:x86-windows-static boost-beast:x86-windows-static boost-system:x86-windows-static boost-variant:x86-windows-static boost-lockfree:x86-windows-static boost-process:x86-windows-static boost-program-options:x86-windows-static luajit:x86-windows-static glew:x86-windows-static boost-filesystem:x86-windows-static boost-uuid:x86-windows-static physfs:x86-windows-static openal-soft:x86-windows-static libogg:x86-windows-static libvorbis:x86-windows-static zlib:x86-windows-static libzip:x86-windows-static openssl:x86-windows-static
+```
+
+Add Environment Variable:
+```bash
+[System.Environment]::SetEnvironmentVariable('VCPKG_ROOT','C:\vcpkg', [System.EnvironmentVariableTarget]::Machine)
 ```
 
 and then you can compile static otcv8 version.
